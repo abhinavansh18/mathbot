@@ -1,0 +1,86 @@
+{
+  "version": "1.0",
+  "description": "Evaluation dataset for MathBot agent accuracy testing. Run via pytest --eval or the nightly GitHub Actions workflow.",
+  "problems": [
+    {
+      "id": "arith_001",
+      "category": "arithmetic",
+      "query": "What is 247 multiplied by 389?",
+      "expected_answer": "96083",
+      "expected_problem_type": "arithmetic",
+      "expected_tools": ["calculator"],
+      "required_elements": ["96083"]
+    },
+    {
+      "id": "arith_002",
+      "category": "arithmetic",
+      "query": "What is the square root of 144?",
+      "expected_answer": "12",
+      "expected_problem_type": "arithmetic",
+      "expected_tools": ["calculator"],
+      "required_elements": ["12"]
+    },
+    {
+      "id": "symb_001",
+      "category": "symbolic_integration",
+      "query": "Integrate x squared with respect to x",
+      "expected_answer": "x**3/3 + C",
+      "expected_problem_type": "symbolic",
+      "expected_tools": ["sympy"],
+      "required_elements": ["+C"],
+      "forbidden_elements": [],
+      "notes": "Integration constant C is mandatory"
+    },
+    {
+      "id": "symb_002",
+      "category": "symbolic_integration",
+      "query": "Find the integral of sin(x) dx",
+      "expected_answer": "-cos(x) + C",
+      "expected_problem_type": "symbolic",
+      "expected_tools": ["sympy"],
+      "required_elements": ["cos", "+C"]
+    },
+    {
+      "id": "symb_003",
+      "category": "symbolic_derivative",
+      "query": "Find the derivative of x^3 with respect to x",
+      "expected_answer": "3*x**2",
+      "expected_problem_type": "symbolic",
+      "expected_tools": ["sympy"],
+      "required_elements": ["3", "x"]
+    },
+    {
+      "id": "symb_004",
+      "category": "equation_solving",
+      "query": "Solve for x: x^2 - 5x + 6 = 0",
+      "expected_answers": ["2", "3"],
+      "expected_problem_type": "symbolic",
+      "expected_tools": ["sympy"],
+      "required_elements": ["2", "3"]
+    },
+    {
+      "id": "symb_005",
+      "category": "equation_solving",
+      "query": "Solve the quadratic equation 2x^2 + 3x - 2 = 0",
+      "expected_answers": ["0.5", "-2"],
+      "expected_problem_type": "symbolic",
+      "expected_tools": ["sympy"],
+      "required_elements": []
+    },
+    {
+      "id": "concept_001",
+      "category": "conceptual",
+      "query": "What is the Pythagorean theorem?",
+      "expected_problem_type": "conceptual",
+      "expected_tools": ["wikipedia"],
+      "required_elements": ["a^2", "b^2", "c^2"]
+    },
+    {
+      "id": "mixed_001",
+      "category": "mixed",
+      "query": "What is the derivative of e^x and what is its value at x=0?",
+      "expected_problem_type": "mixed",
+      "required_elements": ["e^x", "1"]
+    }
+  ]
+}
